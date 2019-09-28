@@ -31,7 +31,7 @@ class SD extends Thread {
                 System.out.println("客户端"+getName()+":"+get);
                 System.out.print("回复"+getName()+":");
                 String message = sc.next();
-                out.writeUTF(message);
+                out.writeUTF("杨鲜银："+message);
             }
         } catch (Exception e) {
             e.printStackTrace();

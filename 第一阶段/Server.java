@@ -3,7 +3,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 //网络编程-Socket套接字-服务器端
-public class ServerClass {
+public class Server {
     public static void main(String[] args) throws IOException {
         //创建套接字
         System.out.println("服务端初始化.......");
