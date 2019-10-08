@@ -7,7 +7,7 @@ import java.net.Socket;
 
 public class Client4 {
     public static void main(String[] args) throws IOException {
-        Socket socket = new Socket("172.16.1.220",5000);
+        Socket socket = new Socket("127.0.0.1",5000);
         InputStream inputStream = socket.getInputStream();
         FileOutputStream fileOutputStream = new FileOutputStream("e:\\gui.txt");
         byte[] b = new byte[1024];
