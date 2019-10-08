@@ -1,3 +1,4 @@
+
 import java.io.*;
 
 public class Base {
@@ -12,6 +13,12 @@ public class Base {
         //第三种获取字节码文件的方法
         Class c3 = Person.class;
         System.out.println(c3);
+
+        //通过加载器将字节码文件加载
+        Person p1 = new Person();
+        Class c4 = p1.getClass();
+        ClassLoader cl = c4.getClassLoader();
+        System.out.println(cl);
     }
 }
 
