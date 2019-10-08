@@ -3,7 +3,7 @@ package UDP;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-
+//接收端
 public class Server {
     public static void main(String[] args) throws IOException {
         DatagramSocket datagramSocket = new DatagramSocket(5000);
