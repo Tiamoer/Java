@@ -7,7 +7,7 @@ import java.net.Socket;
 
 public class Client3 {
     public static void main(String[] args) throws IOException {
-        Socket socket = new Socket(InetAddress.getLoopbackAddress(),5000);
+        Socket socket = new Socket("127.0.0.1",5000);
         OutputStream out = socket.getOutputStream();
         FileInputStream file = new FileInputStream("d:\\aaa.txt");
         byte[] b = new byte[1024];
