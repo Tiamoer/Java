@@ -51,6 +51,8 @@ public class BaseUP {
         for (Method jg:method2) {
             System.out.println(jg);
         }
+
+        //调用类的方法
     }
 }
 
