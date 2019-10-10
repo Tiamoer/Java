@@ -5,6 +5,7 @@ import java.lang.annotation.Target;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Type;
 import java.util.Arrays;
 
 //自定义注解
@@ -12,6 +13,9 @@ import java.util.Arrays;
 @Target({ElementType.TYPE,ElementType.METHOD, ElementType.PARAMETER})
 @interface ZJ {
     String name() default "自定义注解";
+}
+@interface ZJ2 {
+    int age() default 180;
 }
 
 public class Test {
@@ -21,12 +25,15 @@ public class Test {
         t.f2();
         t.f3();
         t.f4();
+        t.f5();
     }
-    //反射接口及父类
+    //反射接口及带泛型的父类及运行时的类
     public void f1() throws ClassNotFoundException {
         System.out.println("反射接口及父类");
         Class c = Class.forName("Test2");
         System.out.println(c.getSuperclass());
+        Type type = c.getGenericSuperclass();
+        System.out.println(type);
         System.out.println(Arrays.toString(c.getInterfaces()));
         System.out.println();
     }
@@ -68,11 +75,20 @@ public class Test {
         Class c = Class.forName("Test2");
         System.out.println(c.getAnnotation(ZJ.class));
         System.out.println(Arrays.toString(c.getAnnotationsByType(ZJ.class)));
+        System.out.println(c.getAnnotatedSuperclass());
+        System.out.println();
+    }
+    //反射获取所在包
+    public void f5() throws ClassNotFoundException {
+        System.out.println("获取所在包");
+        Class c = Class.forName("Test2");
+        System.out.println(c.getPackage());
     }
 }
 
 //反射类1
-class Test1 {
+@ZJ2
+class Test1<T> {
     public String name;
     private int age;
 
