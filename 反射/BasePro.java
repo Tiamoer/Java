@@ -1,11 +1,13 @@
+import javax.crypto.spec.PSource;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.Scanner;
 
 //反射的常用方法
 public class BasePro {
-
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException {
         AA a = new AA();
         //创建字节码文件
         Class c1 = Class.forName("AA");
@@ -52,7 +54,27 @@ public class BasePro {
             System.out.println(jg);
         }
 
-        //调用类的方法
+        System.out.println("---------------");
+
+        //反射类的父类
+        Class c2 = Class.forName("AA1");
+        System.out.println(c2.getSuperclass());
+
+        Method method1 = c2.getMethod("show3");
+        //反射方法的修饰符
+        System.out.println(method1.getModifiers());
+        //反射方法的名字
+        System.out.println(method1.getName());
+        //反射方法的参数类型
+        System.out.println(Arrays.toString(method1.getParameterTypes()));
+
+        System.out.println("----------------");
+
+        //反射类的接口
+        System.out.println(Arrays.toString(c2.getInterfaces()));
+        System.out.println("----------------");
+        //反射属性值的类型
+        System.out.println(c2.getTypeName());
     }
 }
 
@@ -84,4 +106,16 @@ class AA {
     private void show2() {
         System.out.println(name+"  "+id);
     }
+}
+
+//AA的子类
+class AA1 extends AA implements Runnable {
+    String name;
+    int age;
+    boolean sex;
+    @Override
+    public void run() {
+
+    }
+
 }
