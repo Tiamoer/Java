@@ -1,19 +1,23 @@
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.text.MessageFormat;
 import java.util.Properties;
 
 public class MainClass {
     //创建配置文件对象
     public static Properties properties = null;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedEncodingException {
         if (properties == null) {
             properties = new Properties();
             //创建字节输入流 使用类加载器将配置文件加载在流上
             InputStream inputStream = MainClass.class.getClassLoader().getResourceAsStream("StudentInfo.properties");
+            //Properties配置文件默认使用GBK编码，为防止乱码，使用InputStreamReader来硬解码GBK格式
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream,"GBK");
             try {
                 //将流加载到属性文件对象上
-                properties.load(inputStream);
+                properties.load(inputStreamReader);
                 System.out.println(properties.getProperty("Student.name"));
                 System.out.println(properties.getProperty("Student.age"));
                 System.out.println(properties.getProperty("Student.address"));
