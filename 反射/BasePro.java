@@ -3,7 +3,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 //反射的常用方法
-public class BaseUP {
+public class BasePro {
 
     public static void main(String[] args) throws ClassNotFoundException {
         AA a = new AA();
