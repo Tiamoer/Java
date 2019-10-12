@@ -1,7 +1,5 @@
 package TCP;
 
-import sun.nio.ch.Net;
-
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
