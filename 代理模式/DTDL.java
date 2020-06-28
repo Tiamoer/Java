@@ -42,7 +42,7 @@ class MB1 implements JS {
 }
 //动态代理类
 class DL1 implements InvocationHandler {
-    private Object target;
+    private final Object target;
     public DL1(Object target) {
         this.target = target;
     }
