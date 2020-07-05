@@ -31,7 +31,7 @@ class DL implements Add {
     public void add() {
         for (int i = 0;i<=m.n;i++) {
             sum = sum+i;
-        }
+        }   //自己写的啥 自己也不知道
         m.add();
         System.out.println(sum);
     }
