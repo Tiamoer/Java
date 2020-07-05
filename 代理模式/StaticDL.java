@@ -7,7 +7,7 @@ public class StaticDL {
 }
 //接口
 interface Add {
-    public void add();
+    void add();
 }
 //目标类
 class MB implements Add {
