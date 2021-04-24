@@ -1,3 +1,5 @@
+package 练习;
+
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -17,7 +19,7 @@ class Com {
     }
 }
 
-public class Demo {
+public class SelfLearning {
     public static void main(String[] args) {
 
         /**
